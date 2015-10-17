@@ -203,8 +203,8 @@ Readability.prototype = {
     var pathBase = this._uri.pathBase;
 
     function toAbsoluteURI(uri) {
-      // If this is already an absolute URI, return it.
-      if (/^[a-zA-Z][a-zA-Z0-9\+\-\.]*:/.test(uri))
+      // If this is an anchor or already an absolute URI, return it.
+      if (uri.indexOf("#") === 0 || /^[a-zA-Z][a-zA-Z0-9\+\-\.]*:/.test(uri))
         return uri;
 
       // Scheme-rooted relative URI.
